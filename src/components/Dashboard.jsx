@@ -117,10 +117,12 @@ const Dashboard = () => {
       if (filterStatus === "present") {
         return statusId === statuses.find((s) => s.acronym === "P")?.id;
       } else {
+        // Include students who are absent, on leave, exempt, or have not marked attendance
         return (
           statusId === statuses.find((s) => s.acronym === "A")?.id ||
           statusId === statuses.find((s) => s.acronym === "L")?.id ||
-          statusId === statuses.find((s) => s.acronym === "E")?.id
+          statusId === statuses.find((s) => s.acronym === "E")?.id ||
+          statusId === null
         );
       }
     });
